@@ -1,0 +1,10 @@
+<div data-input-type="text" class="input" ng-controller="ArchiveInputController">
+    <form novalidate>
+        <div class="xcol-sm-6 col-md-6 form-group input-group-lg">
+            <textarea ng-model="input.contents" class="form-control" style="height: 300px;" placeholder="Content..."></textarea>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <% include ./stocks.ejs %>
+        </div>
+    </form>
+</div>
