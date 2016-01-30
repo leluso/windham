@@ -1,0 +1,26 @@
+{
+  "name": "windham",
+  "version": "1.0.0",
+  "description": "WIndham",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leluso/windham.git"
+  },
+  "author": "Justin Barber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leluso/windham/issues"
+  },
+  "homepage": "https://github.com/leluso/windham#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "kerberos": "0.0.18",
+    "mongoose": "^4.3.7"
+  }
+}
