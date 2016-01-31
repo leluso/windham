@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="windham">
+    <head>
+        <% include ../partials/head %>
+    </head>
+
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <div style="margin-top: 15px;" data-input-type="url" class="input col-sm-8 col-md-8">
+                <h1><a href="/archive/<%= archive._id %>"><%= archive.title %></a></h1>
+                <h4><strong>Source: </strong><span style="font-weight: 0">
+                    <% if(archive.source.indexOf("://") > -1) { %>
+                        <a href="<%= archive.source %>"><%= archive.source %></a></h2>
+                    <% } if(archive.source.indexOf("://") === -1) { %>
+                        <%= archive.source %>
+                    <% } %>
+                </span></h4>
+
+                <% if(archive.text.contents !== undefined) { %>
+                        <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
+                           for(var p = 0; p < paragraphs.length; p++) {
+                               var paragraph = paragraphs[p];
+                               if(paragraph.length) %>
+                                    <p><%= paragraph %></p>
+                        <% } %>
+                <% } %>
+
+                <% if(archive.audio.data !== undefined) { %>
+                    <audio controls>
+                        <source src="<%= archive.audio.data %>">
+                    </audio>
+                <% } %>
+
+                <% if(archive.webPage.contents !== undefined) { %>
+                        <%- archive.webPage.contents %>
+                <% } %>
+            </div>
+
+            <div style="margin-top: 30px;" class="input col-sm-4 col-md-4">
+                <button id="delete-button" onclick="deleteArchive(event)" type="button" class="btn btn-danger">Delete Archive</button>
+            </div>
+        </div>
+    </body>

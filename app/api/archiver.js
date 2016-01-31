@@ -2,6 +2,7 @@
 
 module.exports = {
     archive: archive, // post
+    deleteArchive: deleteArchive, //delete
 }
 
 let Archive = requireLocal('app/models/archive.js');
@@ -63,4 +64,16 @@ function archive(req, res)
             });
         }
     ]);
+}
+
+function deleteArchive(req, res)
+{   'use strict';
+    let id = req.params.id;
+
+    Archive.remove({ _id: id }, (err) => {
+        if(err) res.status(500);
+        else res.status(200);
+
+        res.send();
+    })
 }

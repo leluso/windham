@@ -67,5 +67,18 @@
                     });
                 }
             }
-        }])
+        }]);
 })(window);
+
+function deleteArchive(event)
+{   'use strict';
+    let paths = location.pathname.split('/');
+    let id = paths[paths.length-1];
+
+    $.ajax({
+        method: 'DELETE',
+        url: '/api/archive/'+id,
+    }).done(() => {
+        window.location.href = '/';
+    })
+}
