@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="windham">
+    <head>
+        <% include ../partials/head %>
+    </head>
+
+    <body>
+        <% include ../partials/header %>
+        <div class="container">
+            <% if(query === undefined) { %>
+                Start a search in the bar up yonder
+            <% } %>
+
+            <% if(query !== undefined) {
+                    var searched = query === '' ? 'everything' : query; %>
+                <h1>Results for <strong><%= query %></strong></h1>
+            <% } %>
+
+            <div style="margin-top: 15px;" data-input-type="url" class="input col-sm-10 col-md-10">
+                <% include ../partials/panelizer %>
+            </div>
+        </div>
+    </body>
