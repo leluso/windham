@@ -4,32 +4,39 @@
         <div class="panel-heading">
             <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
         </div>
-
+        <div class="panel-body">
         <% if(archive.text.contents !== undefined) { %>
-            <div class="panel-body">
-                <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
-                   for(var p = 0; p < paragraphs.length; p++) {
-                       var paragraph = paragraphs[p];
-                       if(paragraph.length) %>
-                            <p><%= paragraph %></p>
-                <% } %>
-            </div>
+            <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
+               for(var p = 0; p < paragraphs.length; p++) {
+                   var paragraph = paragraphs[p];
+                   if(paragraph.length) %>
+                        <p><%= paragraph %></p>
+            <% } %>
         <% } %>
 
         <% if(archive.audio.data !== undefined) { %>
-            <div class="panel-body">
-                <audio controls>
-                    <source src="<%= archive.audio.data %>">
-                </audio>
-            </div>
+            <audio controls>
+                <source src="<%= archive.audio.data %>">
+            </audio>
         <% } %>
 
         <% if(archive.webPage.contents !== undefined) { %>
-            <div class="panel-body">
-                    <%- archive.webPage.contents %>
+                <%- archive.webPage.contents %>
+        <% } %>
+
+        <% if(archive.video.data !== undefined) { %>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src="<%= archive.video.data %>">
+                </video>
             </div>
         <% } %>
 
+        <% if(archive.image.data !== undefined) { %>
+            <img class="img-responsive" src="<%= archive.image.data %>" />
+        <% } %>
+
+        </div>
         <div class="panel-footer">
             <strong>Source: </strong>
             <% if(archive.source.indexOf("://") > -1) { %>

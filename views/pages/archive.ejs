@@ -16,6 +16,7 @@
                         <%= archive.source %>
                     <% } %>
                 </span></h4>
+                <h4><strong>Date: </strong><%= new Date(archive.updated).toString() %></h4>
 
                 <% if(archive.text.contents !== undefined) { %>
                         <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
@@ -33,7 +34,19 @@
                 <% } %>
 
                 <% if(archive.webPage.contents !== undefined) { %>
-                        <%- archive.webPage.contents %>
+                    <%- archive.webPage.contents %>
+                <% } %>
+
+                <% if(archive.video.data !== undefined) { %>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video controls>
+                            <source src="<%= archive.video.data %>">
+                        </video>
+                    </div>
+                <% } %>
+
+                <% if(archive.image.data !== undefined) { %>
+                    <img class="img-responsive" src="<%= archive.image.data %>" />
                 <% } %>
             </div>
 

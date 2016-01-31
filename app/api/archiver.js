@@ -24,20 +24,37 @@ function archive(req, res)
                 archive.text.contents = req.body.contents;
                 process.nextTick(callback);
             }
+
             else if(req.body.audio)
             {
                 archive.audio.data = req.body.audio.data;
                 process.nextTick(callback);
             }
 
+            else if(req.body.video)
+            {
+                archive.video.data = req.body.video.data;
+                process.nextTick(callback);
+            }
+
+            else if(req.body.image)
+            {
+                archive.image.data = req.body.image.data;
+                process.nextTick(callback);
+            }
+
+            else if(req.body.file)
+            {
+                archive.file.data = req.body.file.data;
+                process.nextTick(callback);
+            }
+
             else
             {
-                console.log('Aight so weuh doin dis');
                 let requestedConnection = new Horseman().open(req.body.source)
                     .html()
                     .then((data) => {
-                        console.log('We got da html');
-                        archive.webPage.contents = data;
+                        archive.webPage.contents = data.replace(/<link.*>/g, '').replace(/<script.*<\/script>/g, '');
                         process.nextTick(callback);
                     });
             }

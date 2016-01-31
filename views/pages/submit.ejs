@@ -12,6 +12,9 @@
                 <li data-content="text-input" role="presentation" class="tab active"><a href="#">Text</a></li>
                 <li data-content="url-input" role="presentation" class="tab"><a href="#">Web Page</a></li>
                 <li data-content="audio-input" role="presentation" class="tab"><a href="#">Audio</a></li>
+                <li data-content="video-input" role="presentation" class="tab"><a href="#">Video</a></li>
+                <li data-content="image-input" role="presentation" class="tab"><a href="#">Image</a></li>
+                <li data-content="file-input" role="presentation" class="tab"><a href="#">File</a></li>
             </ul>
 
             <div class="tab-content tab-content-active" id="text-input">
@@ -22,6 +25,15 @@
             </div>
             <div class="tab-content tab-content-inactive" id="audio-input">
                 <% include ../partials/inputs/audio %>
+            </div>
+            <div class="tab-content tab-content-inactive" id="video-input">
+                <% include ../partials/inputs/video %>
+            </div>
+            <div class="tab-content tab-content-inactive" id="image-input">
+                <% include ../partials/inputs/image %>
+            </div>
+            <div class="tab-content tab-content-inactive" id="file-input">
+                <% include ../partials/inputs/file %>
             </div>
         </div>
     </body>
