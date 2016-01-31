@@ -1,4 +1,4 @@
-<!-- views/pages/index.ejs -->
+<!-- views/pages/submit.ejs -->
 <!DOCTYPE html>
 <html ng-app="windham">
     <head>
@@ -7,12 +7,22 @@
 
     <body>
         <% include ../partials/header %>
-        <div class="container">
-            <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" onclick="displayTab(event)" class="active"><a href="#">Text</a></li>
+        <div class="container" ng-controller="TabsController">
+            <ul class="nav nav-tabs nav-justified" ng-click="displayTab($event)">
+                <li data-content="text-input" role="presentation" class="tab active"><a href="#">Text</a></li>
+                <li data-content="url-input" role="presentation" class="tab"><a href="#">Web Page</a></li>
+                <li data-content="audio-input" role="presentation" class="tab"><a href="#">Audio</a></li>
             </ul>
 
-            <% include ../partials/inputs/text %>
+            <div class="tab-content tab-content-active" id="text-input">
+                <% include ../partials/inputs/text %>
+            </div>
+            <div class="tab-content tab-content-inactive" id="url-input">
+                <% include ../partials/inputs/url %>
+            </div>
+            <div class="tab-content tab-content-inactive" id="audio-input">
+                <% include ../partials/inputs/audio %>
+            </div>
         </div>
     </body>
 </html>

@@ -10,32 +10,8 @@
         <div class="container">
             <% include ../partials/inputs/url %>
 
-            <div style="margin-top: 15px;" data-input-type="url" class="input col-sm-8 col-md-8">
-                <% for(var a = 0; a < archives.length; a++) {
-                    var archive = archives[a]; %>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
-                        </div>
-                        <div class="panel-body">
-                            <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
-                               for(var p = 0; p < paragraphs.length; p++) {
-                                   var paragraph = paragraphs[p];
-                                   if(paragraph.length) %>
-                                        <p><%= paragraph %></p>
-                            <% } %>
-                        </div>
-                        <div class="panel-footer">
-                            <strong>Source: </strong>
-                            <% if(archive.source.indexOf("://") > -1) { %>
-                                <a href="<%= archive.source %>"><%= archive.source %></a>
-                            <% } if(archive.source.indexOf("://") === -1) { %>
-                                <%= archive.source %>
-                            <% } %>
-
-                        </div>
-                    </div>
-                <% } %>
+            <div style="margin-top: 15px;" data-input-type="url" class="input col-sm-10 col-md-10">
+                <% include ../partials/panelizer %>
             </div>
         </div>
     </body>
