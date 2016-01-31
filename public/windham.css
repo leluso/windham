@@ -37,3 +37,8 @@
     overflow: hidden;
     max-height: 60vh;
 }
+
+p
+{
+    font-size: 12pt;
+}

@@ -1,10 +1,11 @@
 <% for(var a = 0; a < archives.length; a++) {
     var archive = archives[a]; %>
     <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
+        </div>
+
         <% if(archive.text.contents !== undefined) { %>
-            <div class="panel-heading">
-                <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
-            </div>
             <div class="panel-body">
                 <% var paragraphs = archive.text.contents.split(/\s*\n+\s*/);
                    for(var p = 0; p < paragraphs.length; p++) {
@@ -13,48 +14,29 @@
                             <p><%= paragraph %></p>
                 <% } %>
             </div>
-            <div class="panel-footer">
-                <strong>Source: </strong>
-                <% if(archive.source.indexOf("://") > -1) { %>
-                    <a href="<%= archive.source %>"><%= archive.source %></a>
-                <% } if(archive.source.indexOf("://") === -1) { %>
-                    <%= archive.source %>
-                <% } %>
-            </div>
         <% } %>
 
         <% if(archive.audio.data !== undefined) { %>
-            <div class="panel-heading">
-                <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
-            </div>
             <div class="panel-body">
-                <audio src="<%= archive.audio.data %>" controls></audio>
-            </div>
-            <div class="panel-footer">
-                <strong>Source: </strong>
-                <% if(archive.source.indexOf("://") > -1) { %>
-                    <a href="<%= archive.source %>"><%= archive.source %></a>
-                <% } if(archive.source.indexOf("://") === -1) { %>
-                    <%= archive.source %>
-                <% } %>
+                <audio controls>
+                    <source src="<%= archive.audio.data %>">
+                </audio>
             </div>
         <% } %>
 
         <% if(archive.webPage.contents !== undefined) { %>
-            <div class="panel-heading">
-                <a href="/archive/<%= archive._id %>"><%= archive.title %></a>
-            </div>
             <div class="panel-body">
                     <%- archive.webPage.contents %>
             </div>
-            <div class="panel-footer">
-                <strong>Source: </strong>
-                <% if(archive.source.indexOf("://") > -1) { %>
-                    <a href="<%= archive.source %>"><%= archive.source %></a>
-                <% } if(archive.source.indexOf("://") === -1) { %>
-                    <%= archive.source %>
-                <% } %>
-            </div>
         <% } %>
+
+        <div class="panel-footer">
+            <strong>Source: </strong>
+            <% if(archive.source.indexOf("://") > -1) { %>
+                <a href="<%= archive.source %>"><%= archive.source %></a>
+            <% } if(archive.source.indexOf("://") === -1) { %>
+                <%= archive.source %>
+            <% } %>
+        </div>
     </div>
 <% } %>
