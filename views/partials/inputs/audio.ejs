@@ -1,0 +1,16 @@
+<div data-input-type="text" class="input" ng-controller="ArchiveInputController">
+    <form novalidate>
+        <div class="col-sm-6 col-md-6">
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" id="audio-input-label" readonly>
+                <span class="input-group-btn">
+                    <span class="btn btn-default btn-file">
+                        Browse... <input fileread="input.audio.data" type="file">
+                    </span>
+                </span>
+            </div>
+            <br>
+            <% include ./stocks.ejs %>
+        </div>
+    </form>
+</div>
