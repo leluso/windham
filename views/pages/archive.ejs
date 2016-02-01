@@ -34,7 +34,8 @@
                 <% } %>
 
                 <% if(archive.webPage.contents !== undefined) { %>
-                    <%- archive.webPage.contents %>
+                    <a href="/api/archive/<%= archive._id %>/contents">View raw</a>
+                    <img class="img-responsive" src="<%= archive.webPage.preview %>">
                 <% } %>
 
                 <% if(archive.video.data !== undefined) { %>

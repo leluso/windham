@@ -16,6 +16,8 @@ module.exports = function(app) {
     app.get('/archive', (req, res) => res.redirect('/'));
     app.get('/archive/:id', archiveRenderer);
 
+    app.get('/api/archive/:id', archiver.getArchive)
+    app.get('/api/archive/:id/contents', archiver.getArchiveContents)
     app.post('/api/archive', archiver.archive);
     app.delete('/api/archive/:id', archiver.deleteArchive);
 }
