@@ -53,7 +53,7 @@ function archive(req, res)
 
             else
             {
-                let requestedConnection = new Horseman().open(req.body.source);
+                let requestedConnection = new Horseman().viewport(800, 600).open(req.body.source);
                 async.parallel([
                     (connectionCallback) => {
                         requestedConnection.html()
