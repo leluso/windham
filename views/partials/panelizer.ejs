@@ -21,7 +21,7 @@
         <% } %>
 
         <% if(archive.webPage.contents !== undefined) { %>
-                <%- archive.webPage.contents %>
+                <img class="img-responsive" src="<%= archive.webPage.preview %>">
         <% } %>
 
         <% if(archive.video.data !== undefined) { %>

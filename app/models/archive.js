@@ -10,6 +10,7 @@ let archiveSchema = new mongoose.Schema({
 
     webPage: {
         contents: String,
+        preview: Buffer,
     },
 
     text: {

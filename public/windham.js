@@ -17,7 +17,6 @@
                     $scope.archives.push(archive);
                     $scope.input = {};
                     document.getElementById('audio-input-label').value = '';
-
                 })
             }
         }])
@@ -63,8 +62,8 @@
                             });
                         }
                         reader.readAsDataURL(changeEvent.target.files[0]);
-
-                        document.getElementById('audio-input-label').value = changeEvent.target.files[0].name;
+                        let label = changeEvent.target.dataset.archiveType+'-input-label';
+                        document.getElementById(label).value = changeEvent.target.files[0].name;
                     });
                 }
             }
