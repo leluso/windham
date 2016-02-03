@@ -56,6 +56,8 @@ function archive(req, res)
                 let requestedConnection = new Horseman().viewport(800, 600).open(req.body.source);
                 async.parallel([
                     (connectionCallback) => {
+                        let requestedConnection = new Horseman().viewport(800, 600).open(req.body.source);
+
                         requestedConnection.html()
                             .then((data) => {
                                 archive.webPage.contents = data;//.replace(/<link.*>/g, '').replace(/<script.*<\/script>/g, '');
@@ -64,6 +66,8 @@ function archive(req, res)
                     },
 
                     (connectionCallback) => {
+                        let requestedConnection = new Horseman().viewport(800, 600).open(req.body.source);
+                        
                         requestedConnection.screenshotBase64('PNG')
                             .then((data) => {
                                 archive.webPage.preview = generateBase64DataURI('image/png', null, data);
