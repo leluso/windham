@@ -24,7 +24,7 @@
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "kerberos": "0.0.18",
-    "mongoose": "^4.3.7",
+    "mongoose": "^5.7.5",
     "node-horseman": "^2.8.2",
     "snyk": "^1.41.1"
   },
