@@ -26,7 +26,7 @@
     "kerberos": "0.0.18",
     "mongoose": "^4.3.7",
     "node-horseman": "^2.8.2",
-    "snyk": "^1.41.1"
+    "snyk": "^1.316.1"
   },
   "snyk": true
 }
